@@ -37,7 +37,9 @@ export function getCounts(diceRoll) {
 
 export function getPoints(diceRoll){
     let counts = getCounts(diceRoll)
-    
+    let hasTree = false
+    let hasTwo = false
+
     for(let value in counts){
         if(counts[value] == 5){
             return 50
@@ -46,7 +48,16 @@ export function getPoints(diceRoll){
             return 35
         }
         if(counts[value] == 3){
-            return 28
+            hasTree = true
         }
+        if(counts[value] == 2){
+            hasTwo = true
+        }
+    }
+    if(hasTree && hasTwo){
+        return 30
+    }
+    if(hasTree && !hasTwo){
+        return 28
     }
 }
