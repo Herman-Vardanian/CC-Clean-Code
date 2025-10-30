@@ -29,4 +29,12 @@ describe("return how many points you get from a roll", () => {
     it("3 times the same die (Brelan)", () => {
         expect(getPoints([2,2,2,4,5])).toBe(28)
     })
+
+    it("4 times the same die (Carré)", () => {
+        expect(getPoints([2,2,2,2,5])).toBe(35)
+    })
+
+    it("5 times the same die (YAMS)", () => {
+        expect(getPoints([2,2,2,2,2])).toBe(50)
+    })
 })

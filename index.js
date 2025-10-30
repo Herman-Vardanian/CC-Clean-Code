@@ -39,6 +39,12 @@ export function getPoints(diceRoll){
     let counts = getCounts(diceRoll)
     
     for(let value in counts){
+        if(counts[value] == 5){
+            return 50
+        }
+        if(counts[value] == 4){
+            return 35
+        }
         if(counts[value] == 3){
             return 28
         }
