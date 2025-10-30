@@ -60,6 +60,14 @@ export function getPoints(diceRoll){
         return 28
     }
 
+    let sortedDiceRoll = [...diceRoll].sort((a,b) => a-b)
+    let seq1 = [1, 2, 3, 4, 5] 
+    let seq2 = [2, 3, 4, 5, 6] 
+
+    if(sortedDiceRoll.join(',') == seq1 || sortedDiceRoll.join(',') == seq2){
+        return 40
+    }
+
     let sumOfDiceRoll = 0
     for(let i = 0; i<diceRoll.length; i++){
         sumOfDiceRoll += diceRoll[i]
