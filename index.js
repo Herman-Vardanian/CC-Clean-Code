@@ -11,7 +11,7 @@ export function analyzeDiceRolls(allRolls){
                 throw new Error("le dé n'est pas compris entre 1 et 6")
         }
 
-        getCounts(diceRoll)
+        getPoints(diceRoll)
     }
     }
     
@@ -33,4 +33,14 @@ export function getCounts(diceRoll) {
     }
 
     return dieCount
+}
+
+export function getPoints(diceRoll){
+    let counts = getCounts(diceRoll)
+    
+    for(let value in counts){
+        if(counts[value] == 3){
+            return 28
+        }
+    }
 }

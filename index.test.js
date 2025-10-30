@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { analyzeDiceRolls, getCounts } from "/index.js";
+import { analyzeDiceRolls, getCounts, getPoints } from "/index.js";
 
 describe("Analyze dices to get points", () => {
     it("no errors if 5 dices", () => {
@@ -22,5 +22,11 @@ describe("Analyze dices to get points", () => {
 describe("Count how many time a die appear in a roll", () => {
     it("count occurence of a die", () => {
         expect(getCounts([6,6,1,2,2])).toEqual({6:2, 1:1, 2:2})
+    })
+})
+
+describe("return how many points you get from a roll", () => {
+    it("3 times the same die (Brelan)", () => {
+        expect(getPoints([2,2,2,4,5])).toBe(28)
     })
 })
