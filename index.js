@@ -36,8 +36,8 @@ export function getCounts(diceRoll) {
 
 export function getPoints(diceRoll){
     let counts = getCounts(diceRoll)
-    let hasThree = false
-    let hasTwo = false
+    let hasBrelan = false
+    let hasPair = false
 
     for(let value in counts){
         if(counts[value] == 5){
@@ -47,16 +47,16 @@ export function getPoints(diceRoll){
             return 35
         }
         if(counts[value] == 3){
-            hasThree = true
+            hasBrelan = true
         }
         if(counts[value] == 2){
-            hasTwo = true
+            hasPair = true
         }
     }
-    if(hasThree && hasTwo){
+    if(hasBrelan && hasPair){
         return 30
     }
-    if(hasThree && !hasTwo){
+    if(hasBrelan && !hasPair){
         return 28
     }
 
@@ -64,7 +64,7 @@ export function getPoints(diceRoll){
     let seq1 = [1, 2, 3, 4, 5] 
     let seq2 = [2, 3, 4, 5, 6] 
 
-    if(sortedDiceRoll.join(',') == seq1 || sortedDiceRoll.join(',') == seq2){
+    if(sortedDiceRoll.join(',') == seq1.join(',') || sortedDiceRoll.join(',') == seq2.join(',') ){
         return 40
     }
 
