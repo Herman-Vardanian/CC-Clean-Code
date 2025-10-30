@@ -3,7 +3,11 @@ import { analyzeDiceRolls, getCounts, getPoints } from "/index.js";
 
 describe("Analyze dices to get points", () => {
     it("no errors if 5 dices", () => {
-        expect(analyzeDiceRolls([[1, 2, 3, 4, 5], [5, 5, 5, 5, 5]])).toBe(true)
+        expect(analyzeDiceRolls([[6, 6, 5, 5, 4], [5, 5, 5, 5, 5]])).toBe(76)
+    })
+
+    it("no errors if 5 dices", () => {
+        expect(analyzeDiceRolls([[6, 6, 6, 5, 5], [5, 5, 5, 5, 5]])).toBe(80)
     })
 
     it("too many dices", () => {

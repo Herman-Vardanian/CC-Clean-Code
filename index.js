@@ -1,22 +1,21 @@
 export function analyzeDiceRolls(allRolls){
-
+    let resultDiceRolls = 0;
     for(let i = 0; i < allRolls.length; i++){
         let diceRoll = allRolls[i]
 
         if(diceRoll.length != 5){
             throw new Error("Le nombre de dés doit être de 5")
         }
-        for(let i=0; i<diceRoll.length; i++){
-            if(diceRoll[i]< 1 || diceRoll[i] > 6){
+        for(let j=0; j<diceRoll.length; j++){
+            if(diceRoll[j]< 1 || diceRoll[j] > 6){
                 throw new Error("le dé n'est pas compris entre 1 et 6")
+            }
         }
-
-        getPoints(diceRoll)
-    }
+        resultDiceRolls += getPoints(diceRoll)
     }
     
 
-    return true;
+    return resultDiceRolls;
 } 
 
 export function getCounts(diceRoll) {
@@ -37,7 +36,7 @@ export function getCounts(diceRoll) {
 
 export function getPoints(diceRoll){
     let counts = getCounts(diceRoll)
-    let hasTree = false
+    let hasThree = false
     let hasTwo = false
 
     for(let value in counts){
@@ -48,16 +47,16 @@ export function getPoints(diceRoll){
             return 35
         }
         if(counts[value] == 3){
-            hasTree = true
+            hasThree = true
         }
         if(counts[value] == 2){
             hasTwo = true
         }
     }
-    if(hasTree && hasTwo){
+    if(hasThree && hasTwo){
         return 30
     }
-    if(hasTree && !hasTwo){
+    if(hasThree && !hasTwo){
         return 28
     }
 
