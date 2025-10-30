@@ -10,11 +10,27 @@ export function analyzeDiceRolls(allRolls){
             if(diceRoll[i]< 1 || diceRoll[i] > 6){
                 throw new Error("le dé n'est pas compris entre 1 et 6")
         }
-    }
-    }
-    
 
+        getCounts(diceRoll)
+    }
+    }
     
 
     return true;
 } 
+
+export function getCounts(diceRoll) {
+    let dieCount = {}
+
+    for(let i = 0; i < diceRoll.length; i++){
+        let value = diceRoll[i]
+        if(dieCount[value]){
+            dieCount[value] += 1
+        } 
+        else{
+            dieCount[value] = 1
+        }
+    }
+
+    return dieCount
+}
