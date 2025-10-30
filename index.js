@@ -60,4 +60,10 @@ export function getPoints(diceRoll){
     if(hasTree && !hasTwo){
         return 28
     }
+
+    let sumOfDiceRoll = 0
+    for(let i = 0; i<diceRoll.length; i++){
+        sumOfDiceRoll += diceRoll[i]
+    }
+    return sumOfDiceRoll
 }

@@ -41,4 +41,8 @@ describe("return how many points you get from a roll", () => {
     it("3 times the same die + 2 times the same die(Full)", () => {
         expect(getPoints([2,2,2,3,3])).toBe(30)
     })
+
+    it("No figures (Chance)", () => {
+        expect(getPoints([6,6,5,5,4])).toBe(26)
+    })
 })
